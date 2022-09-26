@@ -1,4 +1,4 @@
-# 1_Godkendelsesopgave
+# 1. Godkendelsesopgave
 
 ## Opgavebeskrivelse
 
