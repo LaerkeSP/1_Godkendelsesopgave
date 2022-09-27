@@ -1,26 +1,24 @@
 import React from "react";
 import {StyleSheet, Text, View} from "react-native";
 
-function HomeScreen({prop}){
+function SubscribedScreen({prop}){
     return(
         <View style={styles.container}>
             <Text style={styles.text}>
-                {prop}
+                Hello from Subscribed
             </Text>
         </View>
     );
 }
 
-export default HomeScreen;
+export default SubscribedScreen;
 
 const styles = StyleSheet.create({
     container: {
-        borderColor: 'red',
-        borderWidth: 20,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'honeydew',
     },
     text: {
         fontSize: 20,
