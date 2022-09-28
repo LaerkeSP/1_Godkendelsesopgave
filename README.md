@@ -31,3 +31,8 @@ Efter at have arbejdet mere i dybden med navigators i exercise timerne, har jeg 
 LogIn.js kommer til at blive mere kompliceret. Her ønskes det at man både skal kunne logge ind, men også oprette en ny bruger. Hvis det er muligt, vil jeg gerne kunne lave den knap til endu en stack, så man kan klikke videre fra log in siden. Jeg er endnu ikke nået til den del i øvelsestimerne, da jeg har haft andre vanskligheder der tog længere tid, så jeg er meget nervøs om jeg kan få fikset alle mindre problemer, og få inkluderet de funktionaliteter jeg ønsker. 
 
 Denne kodningssession har ikke varet særlig længe, så det er begrænset hvad jeg har lært. Det største er nok den dybere forståelse for de forskellige navigators, og hvordan de skal sættes op. 
+
+### 3. dag:
+Sign in virkede kort, men jeg opdagede at databasen jeg brugte var forkert. Log in er til gengæld kommet længere, efter jeg opdaterede databasen - der er dog stadig en fejl heri da jeg har et problem med at komme til home screen efter en bruger bliver logget ind. 
+
+Lige nu vil jeg fokusere på log in, da dette er det mest håndgribelige problem. Jeg havde fået opret bruger til at virke men det stoppede efter jeg pillede med det hele. Jeg tror det er fordi jeg har opsat det som bil opgaven, hvor jeg egentlig bare kan opsætte det mere specifikt med de rigtige values som øvelsesopgave 4 gør. 
