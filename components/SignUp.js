@@ -39,38 +39,52 @@ function SignUpScreen({prop}){
 
     return(
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView style={styles.border}>
                 {
                     Object.keys(initialState).map((key, index) => {
                         return(
                             <View>
-                                <Text style={styles.label}>{key}</Text>
+                                <Text style={styles.text}>{key}</Text>
                                 <TextInput
                                     value = {signUpInformation[key]}
                                     onChangeText = {(event) => changeInput(key, event)}
-                                    style={styles.row}
+                                    style={styles.inputField}
                                 />
                             </View>
                         )
                     })
                 }
-                <Button title={ isEditsignUpInformation ? "Save changes" : "Add car"} onPress={() => handleSignUp({signUpInformation, setSignUpInformation, initialState})} />
+                <Button title={ isEditsignUpInformation ? "Save changes" : "Add user"} onPress={() => handleSignUp({signUpInformation, setSignUpInformation, initialState})} />
             </ScrollView>
         </SafeAreaView>
-
     )
 }
+
 
 export default SignUpScreen
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'lightcyan',
+    error: {
+        color: 'red',
+        fontStyle: "italic",
+        paddingTop: 10,
+        paddingBottom: 10
+    },
+    inputField: {
+        borderWidth: 1,
+        marginTop: 10,
+        marginBottom: 5,
+        padding: 15,
+        borderColor: 'grey'
+    },
+    header: {
+        fontSize: 40,
+        paddingBottom: 20
+    },
+    border: {
+        margin: 20
     },
     text: {
-        fontSize: 20,
-    },
+        fontSize: 20
+    }
 });

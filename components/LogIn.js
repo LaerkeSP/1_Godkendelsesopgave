@@ -13,8 +13,6 @@ async function handleSubmit({email, password, setErrorMessage}){
     }
 }
 
-
-
 function LogInScreen({navigation}){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
