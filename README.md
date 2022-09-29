@@ -9,7 +9,15 @@
 > Eksempler til inspiration: indkøbsliste, opgaveliste, booking/reservations-app, spejl-app, lokation på kort,  cv-præsentationsapp, "kom-og-hent-mig", ...
 
 
+## Programmerings resultat
 
+
+https://user-images.githubusercontent.com/59806877/193126318-ee714a60-fd2c-4a7d-9873-a703f8aa6d08.mp4
+
+
+
+
+https://user-images.githubusercontent.com/59806877/193126341-ac0f2644-e566-43e1-b6d9-7d126ddd6259.mp4
 
 
 
