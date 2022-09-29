@@ -3,9 +3,10 @@ import {Button, StyleSheet, Text, TextInput, View} from "react-native";
 import firebase from "firebase/compat";
 
 
-async function handleSubmit({email, password, setErrorMessage}){
+async function handleSubmit({email, password, setErrorMessage, navigation}){
     try {
         await firebase.auth().signInWithEmailAndPassword(email, password).then((data)=>{
+            navigation.navigate('Home')
         });
 
     } catch (error){
@@ -21,7 +22,7 @@ function LogInScreen({navigation}){
 
     const logInButton = () => {
         return <Button onPress={() =>
-            handleSubmit({email, password, setErrorMessage})}
+            handleSubmit({email, password, setErrorMessage, navigation})}
                        title="Login"
                        color='black'
         />;

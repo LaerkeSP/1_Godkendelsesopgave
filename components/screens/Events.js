@@ -5,7 +5,7 @@ function EventsScreen({prop}){
     return(
         <View style={styles.container}>
             <Text style={styles.text}>
-                Hello from Events
+                Dette er siden hvor man kan se alle de events man deltager i
             </Text>
         </View>
     )
@@ -22,5 +22,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 20,
-    },
+        margin: 20
+    }
+
 });

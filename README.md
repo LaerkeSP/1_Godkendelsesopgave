@@ -36,3 +36,11 @@ Denne kodningssession har ikke varet særlig længe, så det er begrænset hvad 
 Sign in virkede kort, men jeg opdagede at databasen jeg brugte var forkert. Log in er til gengæld kommet længere, efter jeg opdaterede databasen - der er dog stadig en fejl heri da jeg har et problem med at komme til home screen efter en bruger bliver logget ind. 
 
 Lige nu vil jeg fokusere på log in, da dette er det mest håndgribelige problem. Jeg havde fået opret bruger til at virke men det stoppede efter jeg pillede med det hele. Jeg tror det er fordi jeg har opsat det som bil opgaven, hvor jeg egentlig bare kan opsætte det mere specifikt med de rigtige values som øvelsesopgave 4 gør. 
+
+### 4. dag:
+Koden virker endelig! Det er en meget forsimplet version af hvad mockuppen er, men den indeholder de forskellige sider som jeg ønsker at inkluderer og har en virkende login og signup version. 
+
+Problemet med at logge ind viste sig at være meget simpel. Måden der blev refereret til HomeScreen resulterede i at den ikke var i en navigationcontainer, hvilket var meget simpelt at løse. 
+
+Problemet med sign up var som forventet, jeg brugte ikke den rigtige database, og drog inspiration fra den forkerte øvelse, hvilket ikke kontaktede authentication databasen på firebase. Her endte koden nærmest med at være identisk med sign in, da det egentlig bare var kaldet til databasen der var anderledes - den gik fra sign in til create user. 
+

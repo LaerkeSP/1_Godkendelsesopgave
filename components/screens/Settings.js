@@ -5,7 +5,7 @@ function SettingsScreen({prop}){
     return(
         <View style={styles.container}>
             <Text style={styles.text}>
-                Hello from Settings
+                Dette er siden hvor man kan ændre hvilke hobbier man følger og hvilken distance man ønsker
             </Text>
         </View>
     )
@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 20,
+        margin: 20
     },
 });

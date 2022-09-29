@@ -1,62 +1,54 @@
 import React, {useState} from "react";
-import {Alert, Button, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View} from "react-native";
+import {Button, StyleSheet, Text, TextInput, View} from "react-native";
 import firebase from "firebase/compat";
-import route from "react-native/Libraries/Blob/File";
 
-
-async function handleSignUp({signUpInformation, setSignUpInformation, initialState}){
-    const {email, password} = signUpInformation;
-
-    if (email.length === 0 || password.length === 0){
-        return(
-            Alert.alert('Udfyld venligst email og password')
-        )
-    }
+async function handleSubmit({email, password, setErrorMessage, navigation}){
     try {
-        firebase
-            .database()
-            .ref('/Users/')
-            .push({ email, password });
-        Alert.alert(`Saved`);
-        setSignUpInformation(initialState)
-    } catch (error) {
-        console.log(`Error: ${error.message}`);
-    }
+        await firebase.auth().createUserWithEmailAndPassword(email, password).then((data)=>{
+        });
 
+    } catch (error){
+        setErrorMessage(error.message)
+    }
 }
 
 
-function SignUpScreen({prop}){
-    const initialState = {email: '', password: ''};
-    const [signUpInformation, setSignUpInformation] = useState(initialState);
-    const isEditsignUpInformation = route.name === 'EditsignUpInformation'
+function SignUpScreen(){
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState(null);
 
-
-    const changeInput = (name, event) => {
-        setSignUpInformation({...signUpInformation, [name]: event});
-    }
-
+    const signUpButton = () => {
+        return <Button onPress={() =>
+            handleSubmit({email, password, setErrorMessage})}
+                       title="Login"
+        />;
+    };
 
     return(
-        <SafeAreaView>
-            <ScrollView style={styles.border}>
-                {
-                    Object.keys(initialState).map((key, index) => {
-                        return(
-                            <View>
-                                <Text style={styles.text}>{key}</Text>
-                                <TextInput
-                                    value = {signUpInformation[key]}
-                                    onChangeText = {(event) => changeInput(key, event)}
-                                    style={styles.inputField}
-                                />
-                            </View>
-                        )
-                    })
-                }
-                <Button title={ isEditsignUpInformation ? "Save changes" : "Add user"} onPress={() => handleSignUp({signUpInformation, setSignUpInformation, initialState})} />
-            </ScrollView>
-        </SafeAreaView>
+        <View style={styles.border}>
+            <Text style={styles.text}>
+                Opret bruger
+            </Text>
+            <TextInput
+                placeholder='email'
+                value={email}
+                onChangeText={(email) => setEmail(email)}
+                style={styles.inputField}
+            />
+            <TextInput
+                placeholder='password'
+                value={password}
+                onChangeText={(password) => setPassword(password)}
+                secureTextEntry
+                style={styles.inputField}
+            />
+            {errorMessage && (
+                <Text style={styles.error}>Error: {errorMessage}</Text>
+            )}
+            {signUpButton()}
+        </View>
+
     )
 }
 

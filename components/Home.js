@@ -12,27 +12,29 @@ function HomeScreen({prop}){
     const Tab = createBottomTabNavigator();
     
     return(
-        <Tab.Navigator>
-            <Tab.Screen
-                name={'Subscribed'}
-                component={SubscribedScreen}
-                options={
-                    {tabBarIcon: () => (<Ionicons name='star' size={20} />), headerShown:null}
-                }
-            />
-            <Tab.Screen
-                name={'Events'}
-                component={EventsScreen}
-                options={
-                    {tabBarIcon: () => (<Ionicons name='calendar' size={20} />), headerShown:null}
-                } />
-            <Tab.Screen
-                name={'Settings'}
-                component={SettingsScreen}
-                options={
-                    {tabBarIcon: () => (<Ionicons name='settings' size={20} />), headerShown:null}
-                } />
-        </Tab.Navigator>
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Tab.Screen
+                    name={'Subscribed'}
+                    component={SubscribedScreen}
+                    options={
+                        {tabBarIcon: () => (<Ionicons name='star' size={20} />), headerShown:null}
+                    }
+                />
+                <Tab.Screen
+                    name={'Events'}
+                    component={EventsScreen}
+                    options={
+                        {tabBarIcon: () => (<Ionicons name='calendar' size={20} />), headerShown:null}
+                    } />
+                <Tab.Screen
+                    name={'Settings'}
+                    component={SettingsScreen}
+                    options={
+                        {tabBarIcon: () => (<Ionicons name='settings' size={20} />), headerShown:null}
+                    } />
+            </Tab.Navigator>
+        </NavigationContainer>
     );
 }
 
