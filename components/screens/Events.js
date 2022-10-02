@@ -1,7 +1,9 @@
+//Importerer nødvendige libraries
 import React from "react";
 import {StyleSheet, Text, View} from "react-native";
 
-function EventsScreen({prop}){
+function EventsScreen(){
+    //Retur der viser et view med tekst
     return(
         <View style={styles.container}>
             <Text style={styles.text}>

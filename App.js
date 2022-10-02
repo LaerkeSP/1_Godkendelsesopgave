@@ -1,5 +1,5 @@
 //Importing libraries
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet} from 'react-native';
 import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
 import React, {useEffect, useState} from "react";
@@ -9,7 +9,9 @@ import firebase from "firebase/compat";
 import LogInScreen from "./components/LogIn";
 import SignUpScreen from "./components/SignUp";
 import HomeScreen from "./components/Home";
+import Home from "./components/Home";
 
+//Firebase kontakt
 const firebaseConfig = {
     apiKey: "AIzaSyCBGB0u9LjCnQgKwikPno-3IjXHDX-gfiA",
     authDomain: "godkendelsesopgave-1-a8b61.firebaseapp.com",
@@ -19,11 +21,19 @@ const firebaseConfig = {
     appId: "1:1087483840025:web:1940c91470608c6879cc88"
 };
 
+//Initierer firebase databasen
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
 
+//Funktion for bruger der ikke er logget ind
 function guestPage(){
+    //Danner en konstant for til at stacke skærme
     const Stack = createStackNavigator();
 
+    //Returnerer de tre screens: Log in og Sign up
+    //Disse skærme er stacked og kan derfor kun manureres via knapper
     return(
         <NavigationContainer>
             <Stack.Navigator>
@@ -35,13 +45,12 @@ function guestPage(){
     )
 }
 
+//Selve app funktionen
 export default function App() {
+    //Definerer bruger konstanter der har staten ikke logget ind
     const [user, setUser] = useState({ loggedIn: false });
 
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
-
+    //
     function onAuthStateChange(callback) {
         return firebase.auth().onAuthStateChanged(user => {
             if (user) {
@@ -52,6 +61,7 @@ export default function App() {
         });
     }
 
+
     useEffect(() => {
         const unsubscribe = onAuthStateChange(setUser);
         return () => {
@@ -59,6 +69,8 @@ export default function App() {
         };
     }, []);
 
+    //Tjekker om brugerens status er ændret til at være logged ind
+    //Hvis brugerens status er ændret kommer brugeren ind til HomeScreen, hvis ikke bliver de på guestPage
     return(
         user.loggedIn ? <HomeScreen /> : guestPage()
     )

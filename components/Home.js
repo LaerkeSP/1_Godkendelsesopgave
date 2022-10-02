@@ -1,16 +1,20 @@
+//Importerer nødvendige libraries
 import React from "react";
-import {StyleSheet, Text, View} from "react-native";
+import {StyleSheet} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
+//Importerer de forskellige screens fra screen mappen
 import EventsScreen from "./screens/Events";
 import SettingsScreen from "./screens/Settings";
 import SubscribedScreen from "./screens/Subscribed";
-import Ionicons from "react-native-vector-icons/Ionicons";
 
-function HomeScreen({prop}){
+function HomeScreen(){
+    //Laver en konstant af tabnavigator
     const Tab = createBottomTabNavigator();
-    
+
+    //Danner de forskellige screens indenfor en tab navigator med navn og ikon
     return(
         <NavigationContainer>
             <Tab.Navigator>

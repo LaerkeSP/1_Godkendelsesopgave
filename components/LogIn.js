@@ -1,8 +1,9 @@
+//Importerer libraries
 import React, {useState} from "react";
 import {Button, StyleSheet, Text, TextInput, View} from "react-native";
 import firebase from "firebase/compat";
 
-
+//Asynkron funktion der tjekker om brugerens email og password eksisterer i databasen
 async function handleSubmit({email, password, setErrorMessage, navigation}){
     try {
         await firebase.auth().signInWithEmailAndPassword(email, password).then((data)=>{
@@ -15,11 +16,12 @@ async function handleSubmit({email, password, setErrorMessage, navigation}){
 }
 
 function LogInScreen({navigation}){
+    //Definerer de forskellige objekter
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState(null);
 
-
+    //Funktion der kalder handleSubmit når knappen bliver trykket
     const logInButton = () => {
         return <Button onPress={() =>
             handleSubmit({email, password, setErrorMessage, navigation})}
@@ -28,6 +30,7 @@ function LogInScreen({navigation}){
         />;
     };
 
+    //Tekst indput for email og password
     return(
         <View style={styles.border}>
             <Text style={styles.header}>Log in</Text>

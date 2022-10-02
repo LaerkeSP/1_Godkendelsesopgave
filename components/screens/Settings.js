@@ -1,7 +1,9 @@
+//Importerer nødvendige libraries
 import React from "react";
 import {StyleSheet, Text, View} from "react-native";
 
-function SettingsScreen({prop}){
+function SettingsScreen(){
+    //Retur der viser et view med tekst
     return(
         <View style={styles.container}>
             <Text style={styles.text}>

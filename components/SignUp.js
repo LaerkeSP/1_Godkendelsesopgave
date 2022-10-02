@@ -1,8 +1,12 @@
+//Importerer alle libraries
 import React, {useState} from "react";
 import {Button, StyleSheet, Text, TextInput, View} from "react-native";
 import firebase from "firebase/compat";
 
-async function handleSubmit({email, password, setErrorMessage, navigation}){
+//Funktion der håndterer oprettelse af bruger
+//Funktionen tager email, password og setErrorMessage som input
+async function handleSubmit({email, password, setErrorMessage}){
+    //Funktionen prøver at oprette den nye bruger med email og password og catcher en fejlbesked hvis ikke det lykkedes
     try {
         await firebase.auth().createUserWithEmailAndPassword(email, password).then((data)=>{
         });
@@ -12,19 +16,22 @@ async function handleSubmit({email, password, setErrorMessage, navigation}){
     }
 }
 
-
 function SignUpScreen(){
+    //Definerer de forskellige konstanter
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState(null);
 
+    //Funktion der håndterer at opret bruger knappen bliver trykket på
     const signUpButton = () => {
+        //Returnerer kaldet til handleSubmit funktionen
         return <Button onPress={() =>
             handleSubmit({email, password, setErrorMessage})}
                        title="Login"
         />;
     };
 
+    //Retur funktion der indeholder et tekst indput felt for email og password
     return(
         <View style={styles.border}>
             <Text style={styles.text}>
@@ -51,7 +58,6 @@ function SignUpScreen(){
 
     )
 }
-
 
 export default SignUpScreen
 
